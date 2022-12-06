@@ -17,4 +17,4 @@ That's it. Now you can translate as you like. Your new translations will be uplo
 - [**Microsoft Terminology Translation**](https://www.microsoft.com/en-us/language) - Useful for when you need a computer-term in a different language. These are used my Microsoft themselves for things like Windows, Office, Skype, Xbox, Bing, etc.
   - You can download *.tbx glossary files here to help with CAT software: 
   https://www.microsoft.com/en-us/language/Terminology
-  
+- [**DeepL**](https://www.deepl.com/translator) - An online service that provides more accurate machine translations than other common services.
