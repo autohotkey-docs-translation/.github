@@ -1,5 +1,5 @@
 # How to contribute
-1. Ask Ragnar-F (via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=108)) or joedf (via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=55)) to get write access to a project. If a project does not yet exist for your language, it will be created.
+1. Ask Ragnar-F (via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=108)) or joedf (via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=55)), or on the [forum](https://www.autohotkey.com/boards/) if you're not allowed to message someone directly yet, to get write access to a project. If a project does not yet exist for your language, it will be created.
 2. Download and run [OmegaT](https://omegat.org/download#latest) (latest version recommended)
 3. Click in the menu bar on Project > Download Team Project...
 4. Enter `https://github.com/autohotkey-docs-translation/<repoName>.git` in the first input field and replace `<repoName>` with the repository name (e.g. v1-nl)
@@ -21,7 +21,7 @@ For details, see [Creating a personal access token](https://docs.github.com/en/g
 That's it. Now you can translate as you like. Your new translations will be uploaded automatically on a regular basis and at various events such as save, close, etc. If you want to check the current translated state of the document, click on Project > Create Translated Documents and then on Project > Access Project Contents > Current Target Document. When you think it's ready for publishing for now, click on Project > Commit Target Files and let us know via PM, so we can publish the docs. If you have questions, feel free to ask us.
 
 # Tips
-- If a translation is identical to its source text, use "Register identical translation" (Ctrl+Shift+S or accessible from the window menu or right-click menu) to mark it as translated instead of skipping it. This helps maintainability in the sense of going to the next untranslated segment (Ctrl+U); for example, if there is new text after a docs update.
+- If a translation is identical to its source text, use "Register identical translation" (Ctrl+Shift+S or accessible from the menu bar or right-click menu) to mark it as translated instead of skipping it. This helps maintainability in the sense of going to the next untranslated segment (Ctrl+U); for example, if there is new text after a docs update.
 
 # Tools
 - [**OmegaT**](https://omegat.org/) - Free open-source translation memory tool, computer-assisted translation (CAT) software
