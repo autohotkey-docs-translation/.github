@@ -1,5 +1,5 @@
 # How to contribute
-1. Ask Ragnar-F (via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=108)) or joedf (via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=55)), or on the [forum](https://www.autohotkey.com/boards/) if you're not allowed to message someone directly yet, to get write access to a project. If a project does not yet exist for your language, it will be created.
+1. Ask Ragnar-F (e.g. via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=108)) or joedf (e.g. via [PM](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=55)), or on the [forum](https://www.autohotkey.com/boards/) if you're not allowed to message someone directly yet, to get write access to a project. If a project does not yet exist for your language, it will be created.
 2. Download and run [OmegaT](https://omegat.org/download#latest) (latest version recommended)
 3. Click in the menu bar on Project > Download Team Project...
 4. Enter `https://github.com/autohotkey-docs-translation/<repoName>.git` in the first input field and replace `<repoName>` with the repository name (e.g. v1-nl)
