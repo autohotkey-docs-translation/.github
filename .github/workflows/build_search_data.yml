@@ -1,0 +1,38 @@
+name: Build search data
+
+on:
+  workflow_call:
+
+jobs:
+  build-and-commit-search-data:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        ref: master
+
+    - name: Download AutoHotkey v2 and run build_search.ahk
+      run: |
+        try {
+          $source = "https://www.autohotkey.com/download/ahk-v2.zip"
+          $dest = "ahk-v2.zip"
+          Invoke-WebRequest -Uri $source -OutFile $dest
+          Expand-Archive -Path $dest
+          $path = "ahk-v2/AutoHotkey32.exe"
+        }
+        catch {
+          choco install autohotkey.portable --pre --x86
+          $path = "AutoHotkey.exe"
+        }
+        New-Item -Name target\docs\static\source\data_search.js -ItemType File -ea 0
+        Start-Process -FilePath $path -ArgumentList "/ErrorStdOut `"target/docs/static/source/build_search.ahk`"" -NoNewWindow -Wait
+
+    - name: Commit
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add target\docs\static\source\data_search.js
+        git commit -a -m "Build data_search.js"
+        git push

@@ -1,0 +1,38 @@
+name: Postprocessing
+
+on:
+  workflow_call:
+
+jobs:
+  postprocessing:
+    runs-on: windows-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+      with:
+        ref: master
+        fetch-depth: 0
+
+    - name: Download AutoHotkey v1 and run postproc.ahk
+      run: |
+        try {
+          $source = "https://www.autohotkey.com/download/ahk.zip"
+          $dest = "ahk.zip"
+          Invoke-WebRequest -Uri $source -OutFile $dest
+          Expand-Archive -Path $dest
+          $path = "ahk/AutoHotkeyU32.exe"
+        }
+        catch {
+          choco install autohotkey.install
+          $path = "C:\Program Files\AutoHotkey\AutoHotkey.exe"
+        }
+        Start-Process -FilePath $path -ArgumentList "/ErrorStdOut `"postproc/postproc.ahk`"" -NoNewWindow -Wait
+
+    - name: Commit
+      run: |
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+        git add target\docs\static\source\data_search.js
+        git commit -a --amend --no-edit
+        git push --force-with-lease
