@@ -1,6 +1,6 @@
 # How to contribute
 1. Ask Ragnar-F or joedf for write access to a project in this organization. You can contact them on the [forums](https://www.autohotkey.com/boards/) (either by simply posting to [this thread](https://www.autohotkey.com/boards/viewtopic.php?f=91&t=91112), or by PMing [Ragnar-F](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=108) or [joedf](https://www.autohotkey.com/boards/ucp.php?i=pm&mode=compose&u=55) directly if you're allowed to do so) or on the [Discord server](https://www.autohotkey.com/discord). If a project does not yet exist for your language, it will be created.
-2. Download and run [OmegaT Latest Version](https://omegat.org/download#latest) (avoid Standard Version)
+2. Download and run [OmegaT](https://omegat.org/download)
 3. Click in the menu bar on Project > Download Team Project...
 4. Enter `https://github.com/autohotkey-docs-translation/<repoName>.git` in the first input field and replace `<repoName>` with the repository name (e.g. v1-nl)
 5. Specify your new local project folder in the next field
