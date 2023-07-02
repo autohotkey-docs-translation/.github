@@ -18,11 +18,13 @@ jobs:
         try {
           $source = "https://www.autohotkey.com/download/ahk-v2.zip"
           $dest = "ahk-v2.zip"
+          echo "Downloading $source ..."
           Invoke-WebRequest -Uri $source -OutFile $dest
           Expand-Archive -Path $dest
           $path = "ahk-v2/AutoHotkey32.exe"
         }
         catch {
+          echo "Download failed. Trying choco ..."
           choco install autohotkey.portable --pre --x86
           $path = "AutoHotkey.exe"
         }
