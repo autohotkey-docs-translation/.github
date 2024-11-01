@@ -21,6 +21,7 @@ jobs:
           $dest = "ahk-v2.zip"
           echo "Downloading $source ..."
           Invoke-WebRequest -Uri $source -OutFile $dest
+          echo "Extracting files from $dest ..."
           Expand-Archive -Path $dest
           $path = "ahk-v2/AutoHotkey32.exe"
         }
@@ -29,6 +30,7 @@ jobs:
           choco install autohotkey.portable --pre --x86
           $path = "AutoHotkey.exe"
         }
+        echo "Running postproc.ahk ..."
         Start-Process -FilePath $path -ArgumentList "/ErrorStdOut `"postproc/postproc.ahk`"" -NoNewWindow -Wait
 
     - name: Commit
