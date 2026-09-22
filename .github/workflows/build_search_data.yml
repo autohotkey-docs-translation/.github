@@ -28,11 +28,20 @@ jobs:
           echo "Download failed: $($_.Exception.Message)"
           echo "Trying GitHub ..."
 
-          $release = Invoke-WebRequest -Uri "https://api.github.com/repos/AutoHotkey/AutoHotkey/releases/latest" -Headers @{ "User-Agent" = "Mozilla/5.0" }
-          $data = $release.Content | ConvertFrom-Json
-          $asset = $data.assets | Where-Object { $_.name -like "AutoHotkey_*.zip" }
+          $html = Invoke-WebRequest -Uri "https://github.com/AutoHotkey/AutoHotkey/tags"
+          $releases = @(
+            Select-String -InputObject $html.Content -Pattern 'releases\/tag\/(v\d+\.\d+\.\d+)' -AllMatches |
+            ForEach-Object { $_.Matches.Groups[1].Value }
+          )
+          if ($releases.Count -eq 0) {
+            throw "No stable releases found."
+          }
+          $latest = $releases[0]
+          $version = $latest.TrimStart("v")
 
-          $source = $asset.browser_download_url
+          echo "Latest stable release: $latest"
+
+          $source = "https://github.com/AutoHotkey/AutoHotkey/releases/download/$latest/AutoHotkey_$version.zip"
           $dest = "ahk-v2.zip"
           echo "Downloading $source ..."
           Invoke-WebRequest -Uri $source -OutFile $dest
